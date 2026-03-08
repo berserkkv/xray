@@ -1,0 +1,12 @@
+[Unit]
+Description=Xray Service
+After=network.target
+
+[Service]
+Type=simple
+User=b
+ExecStart=/home/b/xray/xray run -config /home/b/xray/config.json
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
