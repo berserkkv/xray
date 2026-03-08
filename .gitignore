@@ -28,7 +28,7 @@
 *.bz2
 
 # Go build binaries
-xray
+
 xray_softfloat
 mockgen
 vprotogen
