@@ -48,3 +48,17 @@ sudo systemctl start xray
 sudo systemctl status xray --no-pager
 
 echo "✅ Xray installed under /opt/xray and running as user xray"
+
+# 8️⃣ Get external IP
+SERVER_IP=$(curl -s https://api.ipify.org)
+
+# 9️⃣ Generate VLESS connection string
+UUID="6b75ec14-bdb8-401b-a034-31b86a37213e"
+PORT="443"
+
+echo ""
+echo "✅ Xray installed under /opt/xray and running as user xray"
+echo ""
+echo "📡 Your VLESS connection link:"
+echo "vless://${UUID}@${SERVER_IP}:${PORT}?type=tcp&security=none#xray-server"
+echo ""
