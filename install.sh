@@ -1,6 +1,10 @@
 #!/bin/bash
 set -e
 
+echo "Installing qrencode..."
+sudo apt update -y
+sudo apt install -y qrencode
+
 # 1️⃣ Create dedicated system user
 sudo useradd -r -s /bin/false xray || echo "User xray already exists"
 
@@ -56,9 +60,14 @@ SERVER_IP=$(curl -s https://api.ipify.org)
 UUID="6b75ec14-bdb8-401b-a034-31b86a37213e"
 PORT="443"
 
+VLESS_LINK="vless://${UUID}@${SERVER_IP}:${PORT}?type=tcp&security=none#xray-server"
+
 echo ""
 echo "✅ Xray installed under /opt/xray and running as user xray"
 echo ""
 echo "📡 Your VLESS connection link:"
-echo "vless://${UUID}@${SERVER_IP}:${PORT}?type=tcp&security=none#xray-server"
+echo "$VLESS_LINK"
 echo ""
+qrencode -t ANSIUTF8 "$VLESS_LINK"
+echo ""
+
