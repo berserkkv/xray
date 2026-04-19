@@ -58,7 +58,7 @@ SERVER_IP=$(curl -s https://api.ipify.org)
 
 # 9️⃣ Generate VLESS connection string
 UUID="6b75ec14-bdb8-401b-a034-31b86a37213e"
-PORT="443"
+PORT="9191"
 
 VLESS_LINK="vless://${UUID}@${SERVER_IP}:${PORT}?type=tcp&security=none#xray-server"
 
